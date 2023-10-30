@@ -7,3 +7,12 @@ before_install:
 
 script:
   - docker run -e CI=true npbeard/docker-react npm run test
+
+deploy:
+  provider: elasticbeanstalk
+  region: "eu-west-1"
+  app: "docker-react"
+  env: "Docker-env"
+  bucket_name: 
+  on:
+    branch: master
